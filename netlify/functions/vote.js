@@ -13,8 +13,8 @@ exports.handler = async function(event, context) {
     
     const record = {
         id: uuidv4(),
-        input.question,
-        input.options
+        question: input.question,
+        options: input.options
     };
     
     const { data, error } = await supabase
