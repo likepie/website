@@ -12,7 +12,7 @@ exports.handler = async function(event, context) {
     // - options must be an array of at least two items and no more than twenty
     
     const record = {
-        id: uuidv4()
+        id: uuidv4(),
         input.question,
         input.options
     };
