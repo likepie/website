@@ -1,0 +1,9 @@
+{
+  "name": "likepie",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {},
+  "dependencies": {
+    "@supabase/supabase-js": "^1.20"
+  }
+}
