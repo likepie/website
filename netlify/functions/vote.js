@@ -6,15 +6,20 @@ const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_KEY
 
 exports.handler = async function(event, context) {
     const input = querystring.decode(event.body);
+    
+    // @todo validate input:
+    // - question must not be empty and maybe add an arbitrary size limit
+    // - options must be an array of at least two items and no more than twenty
+    
+    const record = {
+        id: uuidv4()
+        input.question,
+        input.options
+    };
+    
     const { data, error } = await supabase
         .from('polls')
-        .insert([
-            {
-                id: uuidv4(), 
-                question: 'Hello world', 
-                options: input
-            }
-        ]);
+        .insert([record]);
     
     if (error) {
         return {
@@ -27,6 +32,6 @@ exports.handler = async function(event, context) {
     return {
         statusCode: 200,
         headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify(querystring.decode(event.body))
+        body: JSON.stringify(record)
     };
 }
