@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {},
   "dependencies": {
-    "@supabase/supabase-js": "^1.20"
+    "@supabase/supabase-js": "^1.20",
+    "uuid": "^8"
   }
 }
