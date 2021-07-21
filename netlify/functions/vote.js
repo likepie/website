@@ -10,7 +10,7 @@ exports.handler = async function(event, context) {
         .from('polls')
         .insert([
             {
-                uuid: uuidv4(), 
+                id: uuidv4(), 
                 question: 'Hello world', 
                 options: input
             }
