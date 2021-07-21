@@ -1,5 +1,6 @@
 const querystring = require('querystring');
 const { createClient } = require('@supabase/supabase-js');
+const { v4: uuidv4 } = require('uuid');
 
 const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_KEY)
 
@@ -8,7 +9,11 @@ exports.handler = async function(event, context) {
     const { data, error } = await supabase
         .from('polls')
         .insert([
-            { question: 'Hello world', options: input }
+            {
+                uuid: uuidv4(), 
+                question: 'Hello world', 
+                options: input
+            }
         ]);
     
     if (error) {
