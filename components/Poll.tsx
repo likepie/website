@@ -11,6 +11,15 @@ export type PollProps = {
     published: boolean;
 };
 
+export const Form: React.FC = () => {
+    return (
+        <form>
+            <label htmlFor="title">Title</label>
+            <input id="title" name={"title"} placeholder={"Type your question here..."}/>
+        </form>
+    );
+};
+
 const Poll: React.FC<{ poll: PollProps }> = ({ poll }) => {
     const authorName = poll.author ? poll.author.name : "Anonymous";
     return (
