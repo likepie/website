@@ -10,6 +10,9 @@
 /.next/
 /out/
 
+# development
+prisma/dev.db
+
 # production
 /build
 
