@@ -1,5 +1,9 @@
 import React from "react";
 
+export interface OptionFormProps {
+    title: string
+}
+
 export type OptionProps = {
     id: number;
     title: string;
