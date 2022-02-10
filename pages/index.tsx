@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import React from "react";
 import { GetStaticProps } from "next";
-import Poll, { PollProps } from "../components/Poll";
+import Poll, { Form, PollProps } from "../components/Poll";
 import prisma from '../lib/prisma';
 
 export const getStaticProps: GetStaticProps = async () => {
@@ -43,6 +43,8 @@ const Feed: React.FC<Props> = (props) => {
                 <Poll poll={poll}/>
               </div>
           ))}
+
+          <Form/>
         </main>
       </div>
   );
