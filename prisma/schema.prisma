@@ -10,7 +10,11 @@ datasource db {
 model Poll {
   id        Int      @id @default(autoincrement())
   title     String
+  createdAt DateTime @default(now())
+  updatedAt DateTime?
+  notBefore DateTime?
   published Boolean  @default(false)
+  private   Boolean  @default(false)
   author    User?    @relation(fields: [authorId], references: [id])
   authorId  Int?
   options   Option[]
@@ -19,7 +23,7 @@ model Poll {
 model Option {
   id     Int    @id @default(autoincrement())
   title  String
-  poll   Poll   @relation(fields: [pollId], references: [id])
+  poll   Poll   @relation(fields: [pollId], references: [id], onDelete: Cascade)
   pollId Int
   votes  Int    @default(0)
 }

@@ -2,6 +2,7 @@ export default [
     {
         title: 'Hello world',
         published: true,
+        private: false,
         options: {
             create: [
                 {

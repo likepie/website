@@ -8,6 +8,7 @@ export const getStaticProps: GetStaticProps = async () => {
   const feed = await prisma.poll.findMany({
     where: {
       published: true,
+      private: false,
     },
     select: {
       id: true,
