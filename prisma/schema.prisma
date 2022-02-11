@@ -8,16 +8,17 @@ datasource db {
 }
 
 model Poll {
-  id        Int      @id @default(autoincrement())
-  title     String
-  createdAt DateTime @default(now())
-  updatedAt DateTime?
-  notBefore DateTime?
-  published Boolean  @default(false)
-  private   Boolean  @default(false)
-  author    User?    @relation(fields: [authorId], references: [id])
-  authorId  Int?
-  options   Option[]
+  id             Int       @id @default(autoincrement())
+  title          String
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime?
+  notBefore      DateTime?
+  published      Boolean   @default(false)
+  private        Boolean   @default(false)
+  multipleChoice Boolean   @default(false)
+  author         User?     @relation(fields: [authorId], references: [id])
+  authorId       Int?
+  options        Option[]
 }
 
 model Option {

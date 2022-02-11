@@ -9,12 +9,16 @@ export type PollProps = {
     } | null;
     options: Array<OptionProps>;
     published: boolean;
+    private: boolean;
+    multipleChoice: boolean;
 };
 
 interface PollFormProps {
     id: number;
     title: string;
     options: Array<OptionFormProps>;
+    private: boolean;
+    multipleChoice: boolean;
 }
 
 export const Form: React.FC = () => {
@@ -22,7 +26,9 @@ export const Form: React.FC = () => {
     const [formState, setFormState] = useState<PollFormProps>({
         id: null,
         title: '',
-        options: [{title: ''},{title: ''},{title: ''}]
+        options: [{title: ''},{title: ''},{title: ''}],
+        private: false,
+        multipleChoice: false
     });
 
     const [canSubmit, setCanSubmit] = useState<boolean>(false);
