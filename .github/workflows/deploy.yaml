@@ -19,5 +19,5 @@ jobs:
       - name: Push to dokku
         uses: dokku/github-action@master
         with:
-          git_remote_url: 'ssh://hh-elk.photogabble.co.uk:22/likepie'
+          git_remote_url: 'ssh://dokku@hh-elk.photogabble.co.uk:22/likepie'
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
