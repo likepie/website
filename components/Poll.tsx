@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import Option, {OptionProps, OptionFormProps} from "./Option";
 
 export type PollProps = {
@@ -24,6 +24,13 @@ export const Form: React.FC = () => {
         title: '',
         options: [{title: ''},{title: ''},{title: ''}]
     });
+
+    const [canSubmit, setCanSubmit] = useState<boolean>(false);
+
+    useEffect(() => {
+        console.log('TODO: Validate');
+        setCanSubmit(formState.title.length > 0);
+    }, [formState]);
 
     const handleSubmit = (event) => {
         console.log(formState);
@@ -83,7 +90,7 @@ export const Form: React.FC = () => {
             })}
 
             <button disabled={formState.options.length >= 10} type={"button"} onClick={handleAddOption}>Add Option</button>
-            <button type={"submit"}>Save</button>
+            <button disabled={!canSubmit} type={"submit"}>Save</button>
         </form>
     );
 };
