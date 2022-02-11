@@ -9,11 +9,12 @@ export type OptionProps = {
     title: string;
 };
 
-const Option: React.FC<{ option: OptionProps }> = ({ option }) => {
+const Option: React.FC<{ option: OptionProps, multipleChoice: Boolean }> = ({ option,multipleChoice }) => {
     return (
-        <div>
+        <label>
+            <input name={"answer"} value={option.id} type={multipleChoice ? 'checkbox' : 'radio'} />
             {option.title}
-        </div>
+        </label>
     )
 }
 

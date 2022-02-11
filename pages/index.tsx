@@ -13,6 +13,7 @@ export const getStaticProps: GetStaticProps = async () => {
     select: {
       id: true,
       title: true,
+      multipleChoice: true,
       options: {},
       author: {
         select: {
@@ -34,7 +35,7 @@ const Feed: React.FC<Props> = (props) => {
   return (
       <div className="container">
         <Head>
-          <title>Create Next App</title>
+          <title>Like Pie</title>
           <link rel="icon" href="/favicon.ico" />
         </Head>
         <main>
