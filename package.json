@@ -9,7 +9,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "migrate": "npx prisma migrate dev --name init",
+    "reset": "prisma db push --skip-generate --force-reset --accept-data-loss",
+    "seed": "prisma db seed",
+    "studio": "prisma studio",
+    "migrate": "prisma migrate dev --name init",
     "postinstall": "npm run migrate"
   },
   "dependencies": {
