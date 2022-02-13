@@ -39,6 +39,11 @@ const Feed: React.FC<Props> = (props) => {
           <link rel="icon" href="/favicon.ico" />
         </Head>
         <main>
+
+          <h1 className="text-3xl font-bold underline">
+            Hello world!
+          </h1>
+
           {props.feed.map((poll) => (
               <div key={poll.id}>
                 <Poll poll={poll}/>
