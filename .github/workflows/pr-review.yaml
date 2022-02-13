@@ -10,7 +10,7 @@ jobs:
   review_app:
     runs-on: ubuntu-latest
     # only run when a pull request is opened
-    if: github.event_name == 'pull_request' && github.event.action == 'opened'
+    if: github.event_name == 'pull_request' && (github.event.action == 'opened' || github.event.action == 'synchronize')
     steps:
       - name: Cloning repo
         uses: actions/checkout@v2
@@ -22,6 +22,7 @@ jobs:
         with:
           # create a review app
           command: review-apps:create
+          git_push_flags: '--force'
           git_remote_url: 'ssh://dokku@hh-elk.photogabble.co.uk:22/likepie'
           # specify a name for the review app
           review_app_name: review-likepie-${{ github.event.pull_request.number }}

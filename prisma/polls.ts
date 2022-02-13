@@ -1,5 +1,6 @@
 export default [
     {
+        uid: 'hello-world',
         title: 'Hello world',
         published: true,
         private: false,
