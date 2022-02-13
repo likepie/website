@@ -109,7 +109,7 @@ export const Form: React.FC = () => {
     return (
         <form onSubmit={handleSubmit}>
             <label htmlFor="title">Title</label>
-            <input id="title" name={"title"} placeholder={"Type your question here..."} onChange={handleInputChange}
+            <input id="title" type="text" name="title" placeholder="Type your question here..." onChange={handleInputChange}
                    value={formState.title}/>
 
             <fieldset>
@@ -118,7 +118,7 @@ export const Form: React.FC = () => {
                     return (
                         <div key={`option${index}`}>
                             <label>{index + 1}</label>
-                            <input name={`options.${index}.title`} value={option.title} onChange={handleInputChange}/>
+                            <input name={`options.${index}.title`} type="text" value={option.title} onChange={handleInputChange}/>
                             {index >= 3 ? (<button onClick={() => handleRemoveOption(index)}>Remove</button>) : ''}
                         </div>
                     )
@@ -141,7 +141,7 @@ export const Form: React.FC = () => {
 const Poll: React.FC<{ poll: PollProps }> = ({poll}) => {
     const authorName = poll.author ? poll.author.name : "Anonymous";
     return (
-        <div>
+        <div className="p-4 rounded-md border-2 border-red-500">
             <h2>{poll.title}</h2>
             <small>By {authorName}</small>
             <div>

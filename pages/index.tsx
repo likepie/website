@@ -33,23 +33,19 @@ type Props = {
 
 const Feed: React.FC<Props> = (props) => {
   return (
-      <div className="container">
+      <div className="container mx-auto">
         <Head>
           <title>Like Pie</title>
           <link rel="icon" href="/favicon.ico" />
         </Head>
         <main>
-
-          <h1 className="text-3xl font-bold underline">
-            Hello world!
-          </h1>
-
-          {props.feed.map((poll) => (
-              <div key={poll.id}>
-                <Poll poll={poll}/>
-              </div>
-          ))}
-
+          <div className="my-8 grid grid-cols-3 gap-8">
+            {props.feed.map((poll) => (
+                <div key={poll.id}>
+                  <Poll poll={poll}/>
+                </div>
+            ))}
+          </div>
           <Form/>
         </main>
       </div>
